@@ -33,21 +33,13 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Profile</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Profaili</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -57,35 +49,35 @@
    
 <section class="tutor-profile" style="min-height: calc(100vh - 19rem);"> 
 
-   <h1 class="heading">Profile Details</h1>
+   <h1 class="heading">awọn alaye profaili</h1>
 
    <div class="details">
       <div class="tutor">
          <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" alt="">
          <h3><?= $fetch_profile['name']; ?></h3>
          <span><?= $fetch_profile['profession']; ?></span>
-         <a href="update.php" class="inline-btn">Update Profile</a>
+         <a href="update.php" class="inline-btn">imudojuiwọn profaili</a>
       </div>
       <div class="flex">
          <div class="box">
             <span><?= $total_playlists; ?></span>
-            <p>Total Playlists</p>
-            <a href="playlists.php" class="btn">View Playlists</a>
+            <p>lapapọ akojọ orin</p>
+            <a href="playlists.php" class="btn">wo awọn akojọ orin</a>
          </div>
          <div class="box">
             <span><?= $total_contents; ?></span>
-            <p>Total Videos</p>
-            <a href="contents.php" class="btn">View Contents</a>
+            <p>lapapọ awọn fidio</p>
+            <a href="contents.php" class="btn">wo àwọn àkóónú</a>
          </div>
          <div class="box">
             <span><?= $total_likes; ?></span>
-            <p>Total Likes</p>
-            <a href="contents.php" class="btn">View Contents</a>
+            <p>lapapọ fẹran</p>
+            <a href="contents.php" class="btn">wo àwọn àkóónú</a>
          </div>
          <div class="box">
             <span><?= $total_comments; ?></span>
-            <p>Total Comments</p>
-            <a href="comments.php" class="btn">View Comments</a>
+            <p>lapapọ comments</p>
+            <a href="comments.php" class="btn">wo awọn asọye</a>
          </div>
       </div>
    </div>
@@ -106,7 +98,7 @@
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

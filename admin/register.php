@@ -28,15 +28,15 @@ if(isset($_POST['submit'])){
    $select_tutor->execute([$email]);
    
    if($select_tutor->rowCount() > 0){
-      $message[] = 'Email Already Taken!';
+      $message[] = 'Imeeli ti ya tẹlẹ!';
    }else{
       if($pass != $cpass){
-         $message[] = 'Confirm Passowrd Not Matched!';
+         $message[] = 'jẹ́rìí sí ọ̀rọ̀-ìfiwọlé kò bá a mu!';
       }else{
          $insert_tutor = $conn->prepare("INSERT INTO `tutors`(id, name, profession, email, password, image) VALUES(?,?,?,?,?,?)");
          $insert_tutor->execute([$id, $name, $profession, $email, $cpass, $rename]);
          move_uploaded_file($image_tmp_name, $image_folder);
-         $message[] = 'New Tutor Registered! Please Login Now';
+         $message[] = 'Olùkọ́ tuntun tí a forúkọ sílẹ̀! Jọwọ wọle bayi';
       }
    }
 
@@ -50,21 +50,14 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Register</title>
-   <link rel="icon" href="pic-6.jpg">
+   <title>forukọsilẹ</title>
+
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -88,43 +81,44 @@ if(isset($message)){
 <section class="form-container">
 
    <form class="register" action="" method="post" enctype="multipart/form-data">
-      <h3>Register New</h3>
+      <h3>forukọsilẹ titun</h3>
       <div class="flex">
          <div class="col">
-            <p>Your Name <span>*</span></p>
-            <input type="text" name="name" placeholder="Enter Your Name" maxlength="50" required class="box">
-            <p>Your Profession <span>*</span></p>
+            <p>Orukọ rẹ <span>*</span></p>
+            <input type="text" name="name" placeholder="Tẹ orukọ rẹ" maxlength="50" required class="box">
+            <p>iṣẹ́ rẹ <span>*</span></p>
             <select name="profession" class="box" required>
-               <option value="" disabled selected>-- Select Your Profession</option>
-               <option value="Developer">Developer</option>
-               <option value="Desginer">Desginer</option>
-               <option value="Musician">Musician</option>
-               <option value="Biologist">Biologist</option>
-               <option value="Teacher">Teacher</option>
-               <option value="Engineer">Engineer</option>
-               <option value="Lawyer">Lawyer</option>
-               <option value="Accountant">Accountant</option>
-               <option value="Doctor">Doctor</option>
-               <option value="Journalist">Journalist</option>
-               <option value="Photographer">Photographer</option>
+               <option value="" disabled selected>-- yan iṣẹ rẹ</option>
+               <option value="Olùgbéejáde">Olùgbéejáde</option>
+               <option value="onise">onise</option>
+               <option value="olórin">olórin</option>
+               <option value="onímọ̀ nípa ìṣẹ̀dá">onímọ̀ nípa ìṣẹ̀dá</option>
+               <option value="olùkọ́ Yoruba">olùkọ́ Yoruba</option>
+               <option value="onímọ̀-ẹ̀rọ">onímọ̀-ẹ̀rọ</option>
+               <option value="agbẹjọro">agbẹjọro</option>
+               <option value="Oniṣiro owo">Oniṣiro owo</option>
+               <option value="dókítà">dókítà</option>
+               <option value="akọ̀ròyìn">akọ̀ròyìn</option>
+               <option value="oluyaworan">oluyaworan</option>
             </select>
-            <p>Your Email <span>*</span></p>
-            <input type="email" name="email" placeholder="Enter Your Email" maxlength="50" required class="box">
+            <p>imeeli rẹ <span>*</span></p>
+            <input type="email" name="email" placeholder="tẹ imeeli rẹ sii" maxlength="50" required class="box">
          </div>
          <div class="col">
-            <p>Your Password <span>*</span></p>
-            <input type="password" name="pass" placeholder="Enter Your Password" maxlength="20" required class="box">
-            <p>Confirm Password <span>*</span></p>
-            <input type="password" name="cpass" placeholder="Confirm Your Password" maxlength="20" required class="box">
-            <p>Select Picture <span>*</span></p>
+            <p>ọrọ igbaniwọle rẹ <span>*</span></p>
+            <input type="password" name="pass" placeholder="tẹ ọrọ igbaniwọle rẹ sii" maxlength="20" required class="box">
+            <p>jẹ́rìí sí ọ̀rọ̀-ìfiwọ <span>*</span></p>
+            <input type="password" name="cpass" placeholder="jẹ́rìí sí ọ̀rọ̀-aṣínà rẹ" maxlength="20" required class="box">
+            <p>yan aworan <span>*</span></p>
             <input type="file" name="image" accept="image/*" required class="box">
          </div>
       </div>
-      <p class="link">Already Have An Account? <a href="login.php">Login Now</a></p>
-      <input type="submit" name="submit" value="register now" class="btn">
+      <p class="link">Ti ní àkáùntì tẹ́lẹ̀? <a href="login.php">wiwọle bayi</a></p>
+      <input type="submit" name="submit" value="forukọsilẹ bayi" class="btn">
    </form>
 
 </section>
+
 
 <!-- registe section ends -->
 
@@ -161,8 +155,9 @@ if(darkMode === 'enabled'){
 }
 
 </script>
+   
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 </body>
 </html>

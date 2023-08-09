@@ -28,9 +28,9 @@ if(isset($_POST['delete'])){
    $delete_bookmark->execute([$delete_id]);
    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
    $delete_playlist->execute([$delete_id]);
-   $message[] = 'Playlist Deleted!';
+   $message[] = 'akojọ orin paarẹ!';
    }else{
-      $message[] = 'Playlist Already Deleted!';
+      $message[] = 'Àtòjọ orin ti parẹ́ tẹ́lẹ̀!';
    }
 }
 
@@ -42,21 +42,13 @@ if(isset($_POST['delete'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Playlists</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Awọn akojọ orin</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -66,13 +58,13 @@ if(isset($_POST['delete'])){
 
 <section class="playlists">
 
-   <h1 class="heading">Added Playlists</h1>
+   <h1 class="heading">awọn akojọ orin ti a fi kun</h1>
 
    <div class="box-container">
    
       <div class="box" style="text-align: center;">
-         <h3 class="title" style="margin-bottom: .5rem;">Create New Playlist</h3>
-         <a href="add_playlist.php" class="btn">Add Playlist</a>
+         <h3 class="title" style="margin-bottom: .5rem;">ṣẹda akojọ orin tuntun</h3>
+         <a href="add_playlist.php" class="btn">ṣàfikún àtòjọ orin</a>
       </div>
 
       <?php
@@ -87,7 +79,7 @@ if(isset($_POST['delete'])){
       ?>
       <div class="box">
          <div class="flex">
-            <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"><?= $fetch_playlist['status']; ?></span></div>
+            <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fetch_playlist['status']; ?></span></div>
             <div><i class="fas fa-calendar"></i><span><?= $fetch_playlist['date']; ?></span></div>
          </div>
          <div class="thumb">
@@ -98,15 +90,15 @@ if(isset($_POST['delete'])){
          <p class="description"><?= $fetch_playlist['description']; ?></p>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
-            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">Update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
+            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">imudojuiwọn</a>
+            <input type="submit" value="pa rẹ́" class="delete-btn" onclick="return confirm('pa àtòjọ orin yìí rẹ́?');" name="delete">
          </form>
-         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">View Playlist</a>
+         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">wo akojọ orin</a>
       </div>
       <?php
          } 
       }else{
-         echo '<p class="empty">No Playlist Added Yet!</p>';
+         echo '<p class="empty">Kò sí àtòjọ orin tí a fi kún un síbẹ̀!</p>';
       }
       ?>
 
@@ -126,7 +118,7 @@ if(isset($_POST['delete'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

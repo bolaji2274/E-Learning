@@ -29,9 +29,9 @@ if(isset($_POST['delete_video'])){
       $delete_comments->execute([$delete_id]);
       $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
       $delete_content->execute([$delete_id]);
-      $message[] = 'video deleted!';
+      $message[] = 'fidio paarẹ!';
    }else{
-      $message[] = 'video already deleted!';
+      $message[] = 'fidio tẹlẹ paarẹ!';
    }
 
 }
@@ -55,9 +55,9 @@ if(isset($_POST['delete_playlist'])){
    $delete_bookmark->execute([$delete_id]);
    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id = ?");
    $delete_playlist->execute([$delete_id]);
-   $message[] = 'Playlist Deleted!';
+   $message[] = 'akojọ orin paarẹ!';
    }else{
-      $message[] = 'Playlist Already Deleted!';
+      $message[] = 'àtòjọ orin ti parẹ́ tẹ́lẹ̀!';
    }
 }
 
@@ -69,21 +69,13 @@ if(isset($_POST['delete_playlist'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Dashboard</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Dásíbọọ̀dù</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -93,7 +85,7 @@ if(isset($_POST['delete_playlist'])){
    
 <section class="contents">
 
-   <h1 class="heading">Contents</h1>
+   <h1 class="heading">akoonu</h1>
 
    <div class="box-container">
 
@@ -108,25 +100,25 @@ if(isset($_POST['delete_playlist'])){
    ?>
       <div class="box">
          <div class="flex">
-            <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"><?= $fecth_videos['status']; ?></span></div>
+            <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fecth_videos['status']; ?></span></div>
             <div><i class="fas fa-calendar"></i><span><?= $fecth_videos['date']; ?></span></div>
          </div>
          <img src="../uploaded_files/<?= $fecth_videos['thumb']; ?>" class="thumb" alt="">
          <h3 class="title"><?= $fecth_videos['title']; ?></h3>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">imudojuiwọn</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('Paarẹ fidio yii?');" name="delete_video">
          </form>
-         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">view content</a>
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">wo akoonu</a>
       </div>
    <?php
          }
       }else{
-         echo '<p class="empty">No Contents Founds!</p>';
+         echo '<p class="empty">Ko si awọn akoonu ti a rii!</p>';
       }
    }else{
-      echo '<p class="empty">Please Search Something!</p>';
+      echo '<p class="empty">Jọ̀wọ́ wá nkan kan!</p>';
    }
    ?>
 
@@ -136,7 +128,7 @@ if(isset($_POST['delete_playlist'])){
 
 <section class="playlists">
 
-   <h1 class="heading">Playlists</h1>
+   <h1 class="heading">awọn akojọ orin</h1>
 
    <div class="box-container">
    
@@ -154,7 +146,7 @@ if(isset($_POST['delete_playlist'])){
       ?>
       <div class="box">
          <div class="flex">
-            <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"><?= $fetch_playlist['status']; ?></span></div>
+            <div><i class="fas fa-circle-dot" style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fetch_playlist['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fetch_playlist['status']; ?></span></div>
             <div><i class="fas fa-calendar"></i><span><?= $fetch_playlist['date']; ?></span></div>
          </div>
          <div class="thumb">
@@ -166,16 +158,16 @@ if(isset($_POST['delete_playlist'])){
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
             <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this playlist?');" name="Delete">
+            <input type="submit" value="delete_playlist" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
          </form>
-         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">View Playlist</a>
+         <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">view playlist</a>
       </div>
       <?php
          } 
       }else{
-         echo '<p class="empty">No Playlists Found!</p>';
+         echo '<p class="empty">Kò sí àtòjọ orin tí a rí!</p>';
       }}else{
-         echo '<p class="empty">Please Search Something!</p>';
+         echo '<p class="empty">Jọ̀wọ́ wá nkan kan!</p>';
       }
       ?>
 
@@ -197,7 +189,7 @@ if(isset($_POST['delete_playlist'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

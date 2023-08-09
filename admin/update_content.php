@@ -49,7 +49,7 @@ if(isset($_POST['update'])){
 
    if(!empty($thumb)){
       if($thumb_size > 2000000){
-         $message[] = 'image size is too large!';
+         $message[] = 'Iwọn aworan ti tobi ju!';
       }else{
          $update_thumb = $conn->prepare("UPDATE `content` SET thumb = ? WHERE id = ?");
          $update_thumb->execute([$rename_thumb, $video_id]);
@@ -78,7 +78,7 @@ if(isset($_POST['update'])){
       }
    }
 
-   $message[] = 'content updated!';
+   $message[] = 'akoonu imudojuiwọn!';
 
 }
 
@@ -116,21 +116,13 @@ if(isset($_POST['delete_video'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Update Video</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Ṣe imudojuiwọn fidio</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -140,7 +132,7 @@ if(isset($_POST['delete_video'])){
    
 <section class="video-form">
 
-   <h1 class="heading">Update Content</h1>
+   <h1 class="heading">ṣe imudojuiwọn akoonu</h1>
 
    <?php
       $select_videos = $conn->prepare("SELECT * FROM `content` WHERE id = ? AND tutor_id = ?");
@@ -153,18 +145,19 @@ if(isset($_POST['delete_video'])){
       <input type="hidden" name="video_id" value="<?= $fecth_videos['id']; ?>">
       <input type="hidden" name="old_thumb" value="<?= $fecth_videos['thumb']; ?>">
       <input type="hidden" name="old_video" value="<?= $fecth_videos['video']; ?>">
-      <p>Update Status <span>*</span></p>
+      <p>imudojuiwọn ipo <span>*</span></p>
       <select name="status" class="box" required>
          <option value="<?= $fecth_videos['status']; ?>" selected><?= $fecth_videos['status']; ?></option>
-         <option value="Deactive">Deactive</option>
+         <option value="active">active</option>
+         <option value="deactive">deactive</option>
       </select>
-      <p>Update Title <span>*</span></p>
-      <input type="text" name="title" maxlength="100" required placeholder="enter video title" class="box" value="<?= $fecth_videos['title']; ?>">
-      <p>Update Description <span>*</span></p>
-      <textarea name="description" class="box" required placeholder="write description" maxlength="1000" cols="30" rows="10"><?= $fecth_videos['description']; ?></textarea>
-      <p>Update Playlist</p>
+      <p>imudojuiwọn akọle <span>*</span></p>
+      <input type="text" name="title" maxlength="100" required placeholder="tẹ akọle fidio" class="box" value="<?= $fecth_videos['title']; ?>">
+      <p>imudojuiwọn apejuwe <span>*</span></p>
+      <textarea name="description" class="box" required placeholder="kọ apejuwe" maxlength="1000" cols="30" rows="10"><?= $fecth_videos['description']; ?></textarea>
+      <p>ṣe imudojuiwọn akojọ orin</p>
       <select name="playlist" class="box">
-         <option value="<?= $fecth_videos['playlist_id']; ?>" selected>--Select Playlist</option>
+         <option value="<?= $fecth_videos['playlist_id']; ?>" selected>--yan akojọ orin</option>
          <?php
          $select_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
          $select_playlists->execute([$tutor_id]);
@@ -177,26 +170,26 @@ if(isset($_POST['delete_video'])){
          ?>
          <?php
          }else{
-            echo '<option value="" disabled>No Playlist Created Yet!</option>';
+            echo '<option value="" disabled>kò tíì sí àtòjọ orin tí a ṣẹ̀dá síbẹ̀!</option>';
          }
          ?>
       </select>
       <img src="../uploaded_files/<?= $fecth_videos['thumb']; ?>" alt="">
-      <p>Update Thumbnail</p>
+      <p>ṣe imudojuiwọn thumbnail</p>
       <input type="file" name="thumb" accept="image/*" class="box">
       <video src="../uploaded_files/<?= $fecth_videos['video']; ?>" controls></video>
-      <p>Update Video</p>
+      <p>imudojuiwọn fidio</p>
       <input type="file" name="video" accept="video/*" class="box">
-      <input type="submit" value="update content" name="update" class="btn">
+      <input type="submit" value="imudojuiwon akoonu" name="update" class="btn">
       <div class="flex-btn">
-         <a href="view_content.php?get_id=<?= $video_id; ?>" class="option-btn">view content</a>
-         <input type="submit" value="delete content" name="delete_video" class="delete-btn">
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="option-btn">wo akoonu</a>
+         <input type="submit" value="pa akoonu rẹ́" name="delete_video" class="delete-btn">
       </div>
    </form>
    <?php
          }
       }else{
-         echo '<p class="empty">video not found! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">Add Videos</a></p>';
+         echo '<p class="empty">Fidio ko ri! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">ṣafikun awọn fidio</a></p>';
       }
    ?>
 
@@ -216,7 +209,7 @@ if(isset($_POST['delete_video'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

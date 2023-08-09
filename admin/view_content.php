@@ -53,9 +53,9 @@ if(isset($_POST['delete_comment'])){
    if($verify_comment->rowCount() > 0){
       $delete_comment = $conn->prepare("DELETE FROM `comments` WHERE id = ?");
       $delete_comment->execute([$delete_id]);
-      $message[] = 'Comment Deleted Successfully!';
+      $message [] = 'ọrọìwòye paarẹ ni ifijišẹ!';
    }else{
-      $message[] = 'Comment Already Deleted!';
+      $message [] = 'ọrọìwòye tẹlẹ paarẹ!';
    }
 
 }
@@ -68,21 +68,13 @@ if(isset($_POST['delete_comment'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>View Content</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>wo akoonu</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -120,15 +112,15 @@ if(isset($_POST['delete_comment'])){
       <form action="" method="post">
          <div class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">Update</a>
-            <input type="submit" value="Delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">ìmúdójúìwọ̀n</a>
+            <input type="submit" value="Pa re" class="delete-btn" onclick="return confirm('Paarẹ fidio yii?');" name="delete_video">
          </div>
       </form>
    </div>
    <?php
     }
    }else{
-      echo '<p class="empty">No Contents Added Yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">Add Videos</a></p>';
+      echo '<p class="empty">Kò sí àkóónú tí a fi kún un síbẹ̀! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">ṣafikun awọn fidio</a></p>';
    }
       
    ?>
@@ -137,7 +129,7 @@ if(isset($_POST['delete_comment'])){
 
 <section class="comments">
 
-   <h1 class="heading">User Comments</h1>
+   <h1 class="heading">Awọn alaye olumulo</h1>
 
    
    <div class="show-comments">
@@ -161,13 +153,13 @@ if(isset($_POST['delete_comment'])){
          <p class="text"><?= $fetch_comment['comment']; ?></p>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="comment_id" value="<?= $fetch_comment['id']; ?>">
-            <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('delete this comment?');">Delete Comment</button>
+            <button type="submit" name="delete_comment" class="inline-delete-btn" onclick="return confirm('pa ọ̀rọ̀ yìí rẹ́?');">pa ọrọìwòye</button>
          </form>
       </div>
       <?php
        }
       }else{
-         echo '<p class="empty">No Comments Added Yet!</p>';
+         echo '<p class="empty">Kò sí àfikún àwọn ọ̀rọ̀ kankan síbẹ̀!</p>';
       }
       ?>
       </div>
@@ -185,7 +177,7 @@ if(isset($_POST['delete_comment'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

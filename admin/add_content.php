@@ -34,19 +34,18 @@ if(isset($_POST['submit'])){
    $video_ext = pathinfo($video, PATHINFO_EXTENSION);
    $rename_video = unique_id().'.'.$video_ext;
    $video_tmp_name = $_FILES['video']['tmp_name'];
+   // $video_size = $_FILES['video']['size'];
    $video_folder = '../uploaded_files/'.$rename_video;
 
-   if($thumb_size > 2000000000){
-      $message[] = 'Image Size Is Too Large!';
+   if($thumb_size > 2000000){
+      $message[] = 'Iwọn aworan ti tobi ju!';
    }else{
       $add_playlist = $conn->prepare("INSERT INTO `content`(id, tutor_id, playlist_id, title, description, video, thumb, status) VALUES(?,?,?,?,?,?,?,?)");
       $add_playlist->execute([$id, $tutor_id, $playlist, $title, $description, $rename_video, $rename_thumb, $status]);
       move_uploaded_file($thumb_tmp_name, $thumb_folder);
       move_uploaded_file($video_tmp_name, $video_folder);
-      $message[] = 'New Course Uploaded!';
+      $message[] = 'Ẹ̀kọ́ tuntun tí wọ́n gbé sórí ẹ̀kọ́ tuntun!';
    }
-
-   
 
 }
 
@@ -58,21 +57,13 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Dashboard</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Dásíbọọ̀dù</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -82,22 +73,22 @@ if(isset($_POST['submit'])){
    
 <section class="video-form">
 
-   <h1 class="heading">Upload Content</h1>
+   <h1 class="heading">Gbe akoonu soke</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
-      <p>Video Status <span>*</span></p>
+      <p>ipo fidio <span>*</span></p>
       <select name="status" class="box" required>
-         <option value="" selected disabled>-- Select Status</option>
-         <option value="Active">Active</option>
-         <option value="Deactive">Deactive</option>
+         <option value="" selected disabled>-- yan ipo</option>
+         <option value="active">active</option>
+         <option value="deactive">deactive</option>
       </select>
-      <p>Video Title <span>*</span></p>
-      <input type="text" name="title" maxlength="100" required placeholder="Enter Video Title" class="box">
-      <p>Video Description <span>*</span></p>
-      <textarea name="description" class="box" required placeholder="Write Description" maxlength="1000" cols="30" rows="10"></textarea>
-      <p>Video Playlist <span>*</span></p>
+      <p>fidio akọle <span>*</span></p>
+      <input type="text" name="title" maxlength="100" required placeholder="tẹ akọle fidio" class="box">
+      <p>apejuwe fidio <span>*</span></p>
+      <textarea name="description" class="box" required placeholder="kọ apejuwe" maxlength="1000" cols="30" rows="10"></textarea>
+      <p>akojọ orin fidio <span>*</span></p>
       <select name="playlist" class="box" required>
-         <option value="" disabled selected>--Select Playlist</option>
+         <option value="" disabled selected>--yan akojọ orin</option>
          <?php
          $select_playlists = $conn->prepare("SELECT * FROM `playlist` WHERE tutor_id = ?");
          $select_playlists->execute([$tutor_id]);
@@ -110,15 +101,15 @@ if(isset($_POST['submit'])){
          ?>
          <?php
          }else{
-            echo '<option value="" disabled>No Playlist Created Yet!</option>';
+            echo '<option value="" disabled>Ko si akojọ orin ti a ṣẹda sibẹsibẹ!</option>';
          }
          ?>
       </select>
-      <p>Select Thumbnail <span>*</span></p>
+      <p>yan thumbnail <span>*</span></p>
       <input type="file" name="thumb" accept="image/*" required class="box">
-      <p>Select Video <span>*</span></p>
+      <p>yan fidio <span>*</span></p>
       <input type="file" name="video" accept="video/*" required class="box">
-      <input type="submit" value="Upload Video" name="submit" class="btn">
+      <input type="submit" value="Gbe fidio soke" name="submit" class="btn">
    </form>
 
 </section>
@@ -137,7 +128,7 @@ if(isset($_POST['submit'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

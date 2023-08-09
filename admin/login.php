@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
      setcookie('tutor_id', $row['id'], time() + 60*60*24*30, '/');
      header('location:dashboard.php');
    }else{
-      $message[] = 'Incorrect Email or Password!';
+      $message[] = 'imeeli ti ko tọ tabi ọrọ igbaniwọle!';
    }
 
 }
@@ -30,21 +30,13 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Login</title>
-   <link rel="icon" href="pic-6.jpg">
+   <title>Wiwọle</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -68,29 +60,18 @@ if(isset($message)){
 <section class="form-container">
 
    <form action="" method="post" enctype="multipart/form-data" class="login">
-      <h3>Welcome Back!</h3>
-      <p>Your Email <span>*</span></p>
-      <input type="email" name="email" placeholder="Enter Your Email" maxlength="30" required class="box">
-      <p>Your Password <span>*</span></p>
-      <input type="password" name="pass" placeholder="Enter Your Password" maxlength="20" required class="box">
-      <p class="link">Don't Have An Account? <a href="register.php">Register New</a></p>
-      <input type="submit" name="submit" value="Login Now" class="btn">
+      <h3>Káàbọ̀!</h3>
+      <p>imeeli rẹ <span>*</span></p>
+      <input type="email" name="email" placeholder="tẹ imeeli rẹ sii" maxlength="50" required class="box">
+      <p>ọrọ igbaniwọle rẹ <span>*</span></p>
+      <input type="password" name="pass" placeholder="tẹ ọrọ igbaniwọle rẹ sii" maxlength="20" required class="box">
+      <p class="link">Ko ni akọọlẹ kan? <a href="register.php">forukọsilẹ titun</a></p>
+      <input type="submit" name="submit" value="wiwọle bayi" class="btn">
    </form>
 
 </section>
 
 <!-- registe section ends -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -117,7 +98,7 @@ if(darkMode === 'enabled'){
 
 </script>
 
-<?php include '../components/footer.php'; ?>
-
+<?php include '../components/foot.php'; ?>
+   
 </body>
 </html>

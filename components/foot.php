@@ -2,7 +2,7 @@
 footer{
             width: 100%;
             bottom: 0;
-            background: #8e44ad;
+            background: #7a6ad8;
             color: #fff;
             padding: 100px 0 30px;
             border-top-left-radius: 125px;
@@ -86,7 +86,7 @@ footer{
             text-align: center;
             line-height: 40px;
             font-size: 20px;
-            color: #8e44ad;
+            color: #7a6ad8;
             background: #fff;
             margin-right: 8px;
             cursor: pointer;
@@ -97,7 +97,7 @@ footer{
             border: 1px solid #ccc;
             transition: 1s ease;
             color: #fff;
-            background: #8e44ad;
+            background: #7a6ad8;
         }
         hr{
             width: 90%;
@@ -158,12 +158,12 @@ footer{
 <footer>
         <div class="row">
             <div class="col">
-                <h2 class="logo"><span style="color: #fff;">Learn</span><span style="color: blue;">Hub..</span></h2>
-                <p>An E-Learning platform rich of resources, We
-                    make learning easy and simple for Everyone.</p>
+                <h2 class="logo"><span style="color: #fff;">Ibudo</span><span style="color: blue;">Eko..</span></h2>
+                <p>Syeed E-Learning ti o ni ọlọrọ ti awọn orisun, A
+                    Jẹ́ kí ẹ̀kọ́ rọrùn kí ó sì rọrùn fún gbogbo ènìyàn.</p>
             </div>
             <div class="col">
-                <h3>Office <div class="underline"><span></span></div></h3>
+                <h3>ọfiisi  <div class="underline"><span></span></div></h3>
                 <p>ITPL Road</p>
                 <p>Oke Awesin, Erin Osun</p>
                 <p>Osun State, Nigeria.</p>
@@ -171,21 +171,21 @@ footer{
                 <h4>+234 - 9047310968</h4>
             </div>
             <div class="col">
-                <h3>Links <div class="underline"><span></span></div></h3>
+                <h3>ìsopọ̀ <div class="underline"><span></span></div></h3>
                 <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="about.php">About Us</a></li>
-                    <li><a href="courses.php">Courses</a></li>
-                    <li><a href="teachers.php">Instructors</a></li>
-                    <li><a href="contact.php">Contacts Us</a></li>
+                <li><a href="home.php">Ile</a></li>
+                <li><a href="about.php">Nipa wa</a></li>
+                <li><a href="courses.php">Awon ẹkọ</a></li>
+                <li><a href="teachers.php">Awon olukọ</a></li>
+                <li><a href="contact.php">Firan si wa</a></li>
                 </ul>
             </div>
             <div class="col">
-                <h3>Newsletter <div class="underline"><span></span></div></h3>
+                <h3>Iwe iroyin <div class="underline"><span></span></div></h3>
                 <form id="contact-forms" class="formm" action="https://formspree.io/f/mayzrvev" method="post">
                     <i class="fa fa-envelope"></i>
-                    <input type="email" name="email" placeholder="Enter Your Email id" maxlength="30" required class="box">
-                    <button type="submit" class="bts">Submit</button>
+                    <input type="email" name="email" placeholder="Tẹ id Imeeli rẹ sii" maxlength="30" required class="box">
+                    <button type="submit" class="bts">firanṣẹ</button>
                 </form>
                 <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -196,5 +196,5 @@ footer{
             </div>
         </div>
         <hr>
-        <p class="copyright">&copy; copyright @ <?= date('Y'); ?>  <span style="color: #fff;">Learn</span><span style="color: blue;">Hub..</span> | All Rights Reserved!</p>
+        <p class="copyright">&copy; copyright @ <?= date('Y'); ?>  <span style="color: #fff;">Ibudo</span><span style="color: blue;">Eko..</span> | All Rights Reserved!</p>
     </footer>

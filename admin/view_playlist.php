@@ -50,9 +50,9 @@ if(isset($_POST['delete_video'])){
       $delete_comments->execute([$delete_id]);
       $delete_content = $conn->prepare("DELETE FROM `content` WHERE id = ?");
       $delete_content->execute([$delete_id]);
-      $message[] = 'Video Deleted!';
+      $message[] = 'fidio paarẹ!';
    }else{
-      $message[] = 'Video Already Deleted!';
+      $message[] = 'fidio tẹlẹ paarẹ!';
    }
 
 }
@@ -66,21 +66,13 @@ if(isset($_POST['delete_video'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Playlist Details</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Awọn alaye Akojọ orin</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -90,7 +82,7 @@ if(isset($_POST['delete_video'])){
    
 <section class="playlist-details">
 
-   <h1 class="heading">Playlist Details</h1>
+   <h1 class="heading">Awọn alaye Akojọ orin</h1>
 
    <?php
       $select_playlist = $conn->prepare("SELECT * FROM `playlist` WHERE id = ? AND tutor_id = ?");
@@ -113,15 +105,15 @@ if(isset($_POST['delete_video'])){
          <div class="description"><?= $fetch_playlist['description']; ?></div>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
-            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">Update Playlist</a>
-            <input type="submit" value="delete playlist" class="delete-btn" onclick="return confirm('delete this playlist?');" name="delete">
+            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="option-btn">ṣe imudojuiwọn akojọ orin</a>
+            <input type="submit" value="pa àtòjọ orin rẹ́" class="delete-btn" onclick="return confirm('pa àtòjọ orin yìí rẹ́?');" name="delete">
          </form>
       </div>
    </div>
    <?php
          }
       }else{
-         echo '<p class="empty">No Playlist Found!</p>';
+         echo '<p class="empty">Kò sí àtòjọ orin tí a rí!</p>';
       }
    ?>
 
@@ -129,7 +121,7 @@ if(isset($_POST['delete_video'])){
 
 <section class="contents">
 
-   <h1 class="heading">Playlist Videos</h1>
+   <h1 class="heading">Awọn fidio akojọ orin</h1>
 
    <div class="box-container">
 
@@ -142,22 +134,22 @@ if(isset($_POST['delete_video'])){
    ?>
       <div class="box">
          <div class="flex">
-            <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:limegreen';} ?>"><?= $fecth_videos['status']; ?></span></div>
+            <div><i class="fas fa-dot-circle" style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"></i><span style="<?php if($fecth_videos['status'] == 'active'){echo 'color:limegreen'; }else{echo 'color:red';} ?>"><?= $fecth_videos['status']; ?></span></div>
             <div><i class="fas fa-calendar"></i><span><?= $fecth_videos['date']; ?></span></div>
          </div>
          <img src="../uploaded_files/<?= $fecth_videos['thumb']; ?>" class="thumb" alt="">
          <h3 class="title"><?= $fecth_videos['title']; ?></h3>
          <form action="" method="post" class="flex-btn">
             <input type="hidden" name="video_id" value="<?= $video_id; ?>">
-            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">Update</a>
-            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('delete this video?');" name="delete_video">
+            <a href="update_content.php?get_id=<?= $video_id; ?>" class="option-btn">imudojuiwọn</a>
+            <input type="submit" value="delete" class="delete-btn" onclick="return confirm('Paarẹ fidio yii?');" name="delete_video">
          </form>
-         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">Watch Video</a>
+         <a href="view_content.php?get_id=<?= $video_id; ?>" class="btn">wo fidio</a>
       </div>
    <?php
          }
       }else{
-         echo '<p class="empty">No Videos Added Yet! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">Add Videos</a></p>';
+         echo '<p class="empty">Ko si awọn fidio ti a fi kun sibẹsibẹ! <a href="add_content.php" class="btn" style="margin-top: 1.5rem;">ṣafikun awọn fidio</a></p>';
       }
    ?>
 
@@ -179,7 +171,7 @@ if(isset($_POST['delete_video'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 

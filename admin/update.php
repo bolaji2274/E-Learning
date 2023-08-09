@@ -28,24 +28,24 @@ if(isset($_POST['submit'])){
    if(!empty($name)){
       $update_name = $conn->prepare("UPDATE `tutors` SET name = ? WHERE id = ?");
       $update_name->execute([$name, $tutor_id]);
-      $message[] = 'Username Updated Successfully!';
+      $message[] = 'Ìmúdójúìwọ̀n orúkọ ìdánimọ̀ ní àṣeyọrí!';
    }
 
    if(!empty($profession)){
       $update_profession = $conn->prepare("UPDATE `tutors` SET profession = ? WHERE id = ?");
       $update_profession->execute([$profession, $tutor_id]);
-      $message[] = 'Profession Updated Successfully!';
+      $message[] = 'Iṣẹ́ ìmúdójúìwọ̀n iṣẹ́ náà ṣe àṣeyọrí!';
    }
 
    if(!empty($email)){
       $select_email = $conn->prepare("SELECT email FROM `tutors` WHERE id = ? AND email = ?");
       $select_email->execute([$tutor_id, $email]);
       if($select_email->rowCount() > 0){
-         $message[] = 'Email Already Taken!';
+         $message[] = 'Imeeli ti ya tẹlẹ!';
       }else{
          $update_email = $conn->prepare("UPDATE `tutors` SET email = ? WHERE id = ?");
          $update_email->execute([$email, $tutor_id]);
-         $message[] = 'Email Updated Successfully!';
+         $message[] = 'imeeli imudojuiwọn ni ifijišẹ!';
       }
    }
 
@@ -59,7 +59,7 @@ if(isset($_POST['submit'])){
 
    if(!empty($image)){
       if($image_size > 2000000){
-         $message[] = 'Image Size Too Large!';
+         $message[] = 'Iwọn aworan ti tobi ju!';
       }else{
          $update_image = $conn->prepare("UPDATE `tutors` SET `image` = ? WHERE id = ?");
          $update_image->execute([$rename, $tutor_id]);
@@ -67,7 +67,7 @@ if(isset($_POST['submit'])){
          if($prev_image != '' AND $prev_image != $rename){
             unlink('../uploaded_files/'.$prev_image);
          }
-         $message[] = 'Image Updated Successfully!';
+         $message[] = 'Àwòrán ti ṣe àtúnṣe pẹ̀lú ìyẹ̀sí!.';
       }
    }
 
@@ -81,16 +81,16 @@ if(isset($_POST['submit'])){
 
    if($old_pass != $empty_pass){
       if($old_pass != $prev_pass){
-         $message[] = 'Old Password Not Matched!';
+         $message[] = 'Ọ̀rọ̀ ìgbaniwọlé àtijọ́ kò bá a mu!';
       }elseif($new_pass != $cpass){
-         $message[] = 'Confirm Password Not Matched!';
+         $message[] = 'jẹ́rìí sí ọ̀rọ̀-ìfiwọlé kò bá a mu!';
       }else{
          if($new_pass != $empty_pass){
             $update_pass = $conn->prepare("UPDATE `tutors` SET password = ? WHERE id = ?");
             $update_pass->execute([$cpass, $tutor_id]);
-            $message[] = 'Password Updated Successfully!';
+            $message[] = 'ọrọigbaniwọle imudojuiwọn ni ifijišẹ!';
          }else{
-            $message[] = 'Please Enter a New Password!';
+            $message[] = 'Jọwọ tẹ ọrọ igbaniwọle tuntun!';
          }
       }
    }
@@ -105,21 +105,13 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Update Profile</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Ìmúdójúìwọ̀n Púró</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -132,41 +124,42 @@ if(isset($_POST['submit'])){
 <section class="form-container" style="min-height: calc(100vh - 19rem);">
 
    <form class="register" action="" method="post" enctype="multipart/form-data">
-      <h3>Update Profile</h3>
+      <h3>imudojuiwọn profaili</h3>
       <div class="flex">
          <div class="col">
-            <p>Your Name </p>
+            <p>Orukọ rẹ </p>
             <input type="text" name="name" placeholder="<?= $fetch_profile['name']; ?>" maxlength="50"  class="box">
-            <p>Your Profession </p>
-            <select name="profession" class="box">
+            <p>iṣẹ́ rẹ </p>
+            <select name="profession" class="box" required>
+               <option value="" disabled selected>-- yan iṣẹ rẹ</option>
                <option value="" selected><?= $fetch_profile['profession']; ?></option>
-               <option value="Developer">Developer</option>
-               <option value="Desginer">Desginer</option>
-               <option value="Musician">Musician</option>
-               <option value="Biologist">Biologist</option>
-               <option value="Teacher">Teacher</option>
-               <option value="Engineer">Engineer</option>
-               <option value="Lawyer">Lawyer</option>
-               <option value="Accountant">Accountant</option>
-               <option value="Doctor">Doctor</option>
-               <option value="Journalist">Journalist</option>
-               <option value="Photographer">Photographer</option>
+               <option value="Olùgbéejáde">Olùgbéejáde</option>
+               <option value="onise">onise</option>
+               <option value="olórin">olórin</option>
+               <option value="onímọ̀ nípa ìṣẹ̀dá">onímọ̀ nípa ìṣẹ̀dá</option>
+               <option value="olùkọ́ Yoruba">olùkọ́ Yoruba</option>
+               <option value="onímọ̀-ẹ̀rọ">onímọ̀-ẹ̀rọ</option>
+               <option value="agbẹjọro">agbẹjọro</option>
+               <option value="Oniṣiro owo">Oniṣiro owo</option>
+               <option value="dókítà">dókítà</option>
+               <option value="akọ̀ròyìn">akọ̀ròyìn</option>
+               <option value="oluyaworan">oluyaworan</option>
             </select>
-            <p>Your Email </p>
+            <p>imeeli rẹ </p>
             <input type="email" name="email" placeholder="<?= $fetch_profile['email']; ?>" maxlength="50"  class="box">
          </div>
          <div class="col">
-            <p>Old Password :</p>
-            <input type="password" name="old_pass" placeholder="Enter Your Old Password" maxlength="20"  class="box">
-            <p>New Password :</p>
-            <input type="password" name="new_pass" placeholder="Enter Your New Password" maxlength="20"  class="box">
-            <p>Confirm Password :</p>
-            <input type="password" name="cpass" placeholder="Confirm Your New Password" maxlength="20"  class="box">
+            <p>ọ̀rọ̀-ìfiwọlé àtijọ́ :</p>
+            <input type="password" name="old_pass" placeholder="tẹ ọrọ igbaniwọle atijọ rẹ sii" maxlength="20"  class="box">
+            <p>ọ̀rọ̀-ìfiwọlé tuntun :</p>
+            <input type="password" name="new_pass" placeholder="tẹ ọrọ igbaniwọle tuntun rẹ" maxlength="20"  class="box">
+            <p>jẹ́rìí sí ọ̀rọ̀-ìfiwọ :</p>
+            <input type="password" name="cpass" placeholder="jẹ́rìí sí ọ̀rọ̀-ìfiwọlé rẹ tuntun" maxlength="20"  class="box">
          </div>
       </div>
-      <p>Update Picture :</p>
+      <p>imudojuiwọn aworan :</p>
       <input type="file" name="image" accept="image/*"  class="box">
-      <input type="submit" name="submit" value="Update Now" class="btn">
+      <input type="submit" name="submit" value="ìmúdójúìwọ̀n" class="btn">
    </form>
 
 </section>
@@ -182,7 +175,7 @@ if(isset($_POST['submit'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
    

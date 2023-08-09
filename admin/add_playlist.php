@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
 
    move_uploaded_file($image_tmp_name, $image_folder);
 
-   $message[] = 'New Playlist Created!';  
+   $message[] = 'Akojọ orin tuntun ti ṣẹda!';  
 
 }
 
@@ -44,21 +44,13 @@ if(isset($_POST['submit'])){
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Add Playlist</title>
-   <link rel="icon" href="images/pic-6.jpg">
+   <title>Ṣàfikún Àtòjọ Orin</title>
+   <link rel="icon" href="pic-2.jpg">
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="assets/css/fontawesome.css">
-      <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-      <link rel="stylesheet" href="assets/css/owl.css">
-      <link rel="stylesheet" href="assets/css/animate.css">
-      <link rel="stylesheet" href="assets/css/footer.css">
-      <link rel="stylesheet" href="assets/css/about.css">
-      <link rel="stylesheet" href="css/style.css">
-      <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
    <link rel="stylesheet" href="../css/admin_style.css">
 
 </head>
@@ -68,22 +60,22 @@ if(isset($_POST['submit'])){
    
 <section class="playlist-form">
 
-   <h1 class="heading">Create Playlist</h1>
+   <h1 class="heading">ṣẹda akojọ orin</h1>
 
    <form action="" method="post" enctype="multipart/form-data">
-      <p>Playlist Status <span>*</span></p>
+      <p>ipo akojọ orin <span>*</span></p>
       <select name="status" class="box" required>
-         <option value="" selected disabled>-- Select Status</option>
-         <option value="Active">Active</option>
-         <option value="Deactive">Deactive</option>
+         <option value="" selected disabled>-- yan ipo</option>
+         <option value="active">active</option>
+         <option value="deactive">deactive</option>
       </select>
-      <p>Playlist Title <span>*</span></p>
-      <input type="text" name="title" maxlength="100" required placeholder="Enter Playlist Title" class="box">
-      <p>Playlist Description <span>*</span></p>
-      <textarea name="description" class="box" required placeholder="Write Description" maxlength="1000" cols="30" rows="10"></textarea>
-      <p>Playlist Thumbnail <span>*</span></p>
+      <p>akojọ orin akọle <span>*</span></p>
+      <input type="text" name="title" maxlength="100" required placeholder="tẹ akojọ orin akọle" class="box">
+      <p>akojọ orin apejuwe <span>*</span></p>
+      <textarea name="description" class="box" required placeholder="kọ apejuwe" maxlength="1000" cols="30" rows="10"></textarea>
+      <p>akojọ orin thumbnail <span>*</span></p>
       <input type="file" name="image" accept="image/*" required class="box">
-      <input type="submit" value="Create Playlist" name="submit" class="btn">
+      <input type="submit" value="ṣẹda akojọ orin" name="submit" class="btn">
    </form>
 
 </section>
@@ -102,7 +94,7 @@ if(isset($_POST['submit'])){
 
 
 
-<?php include '../components/footer.php'; ?>
+<?php include '../components/foot.php'; ?>
 
 <script src="../js/admin_script.js"></script>
 
